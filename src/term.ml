@@ -84,9 +84,10 @@ let create ?dispose ?nosig ?mouse ?bpaste ?reader ?writer ?for_mocking ~time_sou
   don't_wait_for
     (Pipe.iter_without_pushback notty_pipe ~f:(fun event ->
        (* NOTE: We use [iter_without_pushback] here to immediately enqueue the event so
-          that we do not risk accidentally dropping it. A first implementation of this function
-          made use of [Pipe.read] inside of a call to [Async.choose], but this proved unreliable
-          as if a different branch of the [choose] won, we could "drop" the event we saw.
+          that we do not risk accidentally dropping it. A first implementation of this
+          function made use of [Pipe.read] inside of a call to [Async.choose], but this
+          proved unreliable as if a different branch of the [choose] won, we could "drop"
+          the event we saw.
 
           The alternate approach is to instead [Pipe.iter_without_pushback] to add the
           events to a queue, and then [Bvar.broadcast] to (optionally) notify the "loop"

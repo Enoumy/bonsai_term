@@ -7,6 +7,7 @@ let bold = Notty.A.st Notty.A.bold
 let italic = Notty.A.st Notty.A.italic
 let underline = Notty.A.st Notty.A.underline
 let blink = Notty.A.st Notty.A.blink
+let invert = Notty.A.st Notty.A.reverse
 let empty = many []
 
 module Color = struct
@@ -23,6 +24,26 @@ module Color = struct
     let b = Int.clamp_exn b ~min:0 ~max:255 in
     Notty.A.rgb_888 ~r ~g ~b
   ;;
+
+  module Expert = struct
+    let black = Notty.A.black
+    let red = Notty.A.red
+    let green = Notty.A.green
+    let yellow = Notty.A.yellow
+    let blue = Notty.A.blue
+    let magenta = Notty.A.magenta
+    let cyan = Notty.A.cyan
+    let white = Notty.A.white
+    let lightblack = Notty.A.lightblack
+    let lightred = Notty.A.lightred
+    let lightgreen = Notty.A.lightgreen
+    let lightyellow = Notty.A.lightyellow
+    let lightblue = Notty.A.lightblue
+    let lightmagenta = Notty.A.lightmagenta
+    let lightcyan = Notty.A.lightcyan
+    let lightwhite = Notty.A.lightwhite
+    let default = Notty.A.default
+  end
 end
 
 let fg = Notty.A.fg

@@ -59,14 +59,14 @@ val dimensions : t -> Geom.Dimensions.t
 val height : t -> int
 val width : t -> int
 
-(* Set all unspecified foreground and background colors in this image. 
-   If [fill_backdrop] is true (defaults to false), then a rectangle of solid [bg] 
-   is inserted behind the image. *)
+(* Set all unspecified foreground and background colors in this image. If [fill_backdrop]
+   is true (defaults to false), then a rectangle of solid [bg] is inserted behind the
+   image. *)
 val with_colors : ?fill_backdrop:bool -> t -> fg:Attr.Color.t -> bg:Attr.Color.t -> t
 
 (* [with_colors'] is like [with_colors], but the foreground and background colors are
-   optional.  If either isn't passed, then they'll be unset, and could be influenced by
-   a further call to [with_colors]. *)
+   optional. If either isn't passed, then they'll be unset, and could be influenced by a
+   further call to [with_colors]. *)
 val with_colors' : ?fill_backdrop:bool -> ?fg:Attr.Color.t -> ?bg:Attr.Color.t -> t -> t
 
 (** [uchar_tty_width] lets you know how "wide" a unicode character is in a terminal. e.g.

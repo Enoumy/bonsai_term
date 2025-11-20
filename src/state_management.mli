@@ -1,8 +1,8 @@
 open! Core
 open Bonsai
 
-(* NOTE: This module contains some helper functions for "things we want to keep
-   in sync" inside of each [loop.ml] iteration. *)
+(* NOTE: This module contains some helper functions for "things we want to keep in sync"
+   inside of each [loop.ml] iteration. *)
 
 module For_dimensions : sig
   type t

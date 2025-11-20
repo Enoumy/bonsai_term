@@ -157,9 +157,8 @@ let hcat =
 let zcat ts =
   (* This function doesn't use [make_cat] for two reasons:
      1. with [zcat] you don't need to update the locations
-     2. we're merging the tags in the reverse order, allowing 
-        tags earlier in the list to take priority over tags 
-        later in the list.  Maybe this is a mistake. *)
+     2. we're merging the tags in the reverse order, allowing tags earlier in the list to
+        take priority over tags later in the list. Maybe this is a mistake. *)
   let ~images, ~tags =
     List.fold ts ~init:(~images:[], ~tags:Tag.empty) ~f:(fun (~images, ~tags) t ->
       ~images:(t.image :: images), ~tags:(Tag.merge t.tags tags))
@@ -266,7 +265,8 @@ let with_colors' ?(fill_backdrop = false) ?fg ?bg { image; tags } =
   let image =
     match fg, bg with
     | Some _, Some _ ->
-      (* if both foreground and background are set in this call, then the resulting image is constant *)
+      (* if both foreground and background are set in this call, then the resulting image
+         is constant *)
       constant (build_image Attr.empty)
     | _ -> memo build_image
   in
